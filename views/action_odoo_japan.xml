@@ -1,0 +1,43 @@
+<odoo>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo_japan.action_window">
+      <field name="name">odoo_japan window</field>
+      <field name="res_model">odoo_japan.odoo_japan</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="odoo_japan.action_server">
+      <field name="name">odoo_japan server</field>
+      <field name="model_id" ref="model_odoo_japan_odoo_japan"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form,kanban",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="odoo_japan" id="odoo_japan.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="odoo_japan.menu_1" parent="odoo_japan.menu_root"/>
+    <menuitem name="Menu 2" id="odoo_japan.menu_2" parent="odoo_japan.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="odoo_japan.menu_1_list" parent="odoo_japan.menu_1"
+              action="odoo_japan.action_window"/>
+    <menuitem name="Server to list" id="odoo_japan" parent="odoo_japan.menu_2"
+              action="odoo_japan.action_server"/>
+
+</odoo>

@@ -1,0 +1,22 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="odoo_japan_envios_japon.list">
+      <field name="name">envios japon list</field>
+      <field name="model">odoo_japan.envios_japon</field>
+      <field name="groups">base.group_admin</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id_wallapop"/>
+          <field name="seguimiento"/>
+          <field name="coste_envio"/>
+          <field name="url"/>
+          <field name="fecha"/>
+          <field name="etiqueta"/>
+        </tree>
+      </field>
+    </record>
+
+  </data>
+</odoo>
