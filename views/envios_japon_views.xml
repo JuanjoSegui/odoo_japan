@@ -1,22 +1,22 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+    <data>
+      <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="odoo_japan_envios_japon_list">
-      <field name="name">envios japon list</field>
-      <field name="model">odoo_japan.envios_japon</field>
-      <field name="groups">base.group_admin</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="id_wallapop"/>
-          <field name="seguimiento"/>
-          <field name="coste_envio"/>
-          <field name="url"/>
-          <field name="fecha"/>
-          <field name="etiqueta"/>
-        </tree>
-      </field>
-    </record>
+      <record model="ir.ui.view" id="odoo_japan_envios_japon_list">
+        <field name="name">envios japon list</field>
+        <field name="model">envios.japon</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="nombre"/>
+            <field name="id_wallapop" widget='many2one'/>
+            <field name="seguimiento"/>
+            <field name="coste_envio"/>
+            <field name="url"/>
+            <field name="fecha"/>
+            <field name="etiqueta"/>
+          </tree>
+        </field>
+      </record>
 
-  </data>
-</odoo>
+    </data>
+  </odoo>

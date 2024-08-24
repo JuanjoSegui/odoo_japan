@@ -1,78 +1,60 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+    <data>
+      <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="odoo_japan_compras_japon_list">
-      <field name="name">compras japon list</field>
-      <field name="model">odoo_japan.compras_japon</field>
-      <field name="groups">base.group_admin</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="id_wallapop"/>
-          <field name="nombre"/>
-          <field name="precio"/>
-          <field name="gastos_envio"/>
-          <field name="descripcion"/>
-          <field name="vendido"/>
-          <field name="fecha"/>
-          <field name="etiqueta"/>
-        </tree>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="odoo_japan_compras_japon_kanban">
-        <field name="name">compras japon kanban</field>
-        <field name="model">odoo_japan.compras_japon</field>
-        <field name="groups">base.group_admin</field>
+      <record model="ir.ui.view" id="odoo_japan_compras_japon_list">
+        <field name="name">compras japon list</field>
+        <field name="model">compras.japon</field>
         <field name="arch" type="xml">
-            <kanban>
-                <templates>
-                    <t t-foreach="records" t-as="record">
-                        <div class="o_kanban_card">
-                            <div class="o_kanban_image">
-                                <t t-if="record.etiqueta">
-                                    <img t-att-src="'data:image/png;base64,%s' % record.etiqueta.decode('base64')"
-                                         alt="Etiqueta Image" class="img-fluid"/>
-                                </t>
-                                <t t-else="">
-                                    <p>No image available</p>
-                                </t>
-                            </div>
-                            <div class="o_kanban_details">
-                                <div class="o_kanban_title">
-                                    <t t-esc="record.id_wallapop"/>
-                                </div>
-                                <div class="o_kanban_field">
-                                    <strong>Nombre:</strong> <t t-esc="record.nombre"/>
-                                </div>
-                                <div class="o_kanban_field">
-                                    <strong>Precio:</strong> <t t-esc="record.precio"/>
-                                </div>
-                                <div class="o_kanban_field">
-                                    <strong>Gastos Envio:</strong> <t t-esc="record.gastos_envio"/>
-                                </div>
-                                <div class="o_kanban_field">
-                                    <strong>Descripcion:</strong> <t t-esc="record.descripcion"/>
-                                </div>
-                                <div class="o_kanban_field">
-                                    <strong>Vendido:</strong> <t t-esc="record.vendido"/>
-                                </div>
-                                <div class="o_kanban_field">
-                                    <strong>Fecha:</strong> <t t-esc="record.fecha"/>
-                                </div>
-                                <!-- Add button for generating the report -->
-                                <div class="o_kanban_buttons">
-                                    <a type="action" class="btn btn-primary"
-                                        t-att-data-id="record.id">
-                                       Ver Etiqueta
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </t>
-                </templates>
-            </kanban>
+          <tree>
+            <field name="id_wallapop"/>
+            <field name="nombre"/>
+            <field name="precio_compra"/>
+            <field name="precio_venta"/>
+            <field name="gastos_envio"/>
+            <field name="descripcion"/>
+            <field name="vendido"/>
+            <field name="fecha"/>
+            <field name="etiqueta"/>
+            <field name="envio_ids"/>
+          </tree>
         </field>
-    </record>
-  </data>
-</odoo>
+      </record>
+
+      <record model="ir.ui.view" id="odoo_japan_compras_japon_kanban">
+          <field name="name">compras japon kanban</field>
+          <field name="model">compras.japon</field>
+          <field name="arch" type="xml">
+              <kanban>
+                  <templates>
+                      <t t-name="kanban-box">
+                          <!-- Asegurarse de que 'records' está definido y es iterable -->
+
+                                  <div class="o_kanban_card">
+                                          <!-- ID Wallapop -->
+                                          <div class="o_kanban_title">
+                                              <strong>ID Wallapop:</strong> <t t-esc="record.id_wallapop"/>
+                                          </div>
+
+                                          <!-- Estado Vendido -->
+                                          <div class="o_kanban_field">
+                                              <strong>Vendido:</strong> <t t-esc="record.vendido"/>
+                                          </div>
+
+                                          <!-- Botón para generar el reporte -->
+                                          <div class="o_kanban_buttons">
+                                              <a type="action" class="btn btn-primary"
+                                                  t-attf-href="/web/report/pdf/odoo_japan.report_wallapop_image?model=odoo_japan.envios_japon;id=%s"
+                                                  t-att-data-id="record.id">
+                                                 Ver Etiqueta
+                                              </a>
+                                          </div>
+                                      </div>
+
+                      </t>
+                  </templates>
+              </kanban>
+          </field>
+      </record>
+    </data>
+  </odoo>

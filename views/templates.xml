@@ -1,39 +1,39 @@
 <odoo>
-            <!-- Report action -->
-    <report
-        id="report_wallapop_image"
-        model="odoo_japan.compras_japon"
-        string="Etiqueta Wallapop"
-        report_type="qweb-pdf"
-        name="odoo_japan.template_etiqueta_wallapop"
-        file="odoo_japan.template_etiqueta_wallapop"
-        attachment_use="False"
-    />
-    <!-- Define the QWeb template -->
-    <template id="template_etiqueta_wallapop">
-        <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="doc">
-                <div class="container text-center mt-4">
-                    <!-- Display the id_wallapop field above the image -->
-                    <div class="mb-3">
-                        <span class="d-block font-weight-bold">
-                            <t t-esc="doc.id_wallapop"/>
-                        </span>
-                    </div>
+    <!-- Report action -->
+<report
+id="report_wallapop_image"
+model="compras.japon"
+string="Etiqueta Wallapop"
+report_type="qweb-pdf"
+name="odoo_japan.template_etiqueta_wallapop"
+file="odoo_japan.template_etiqueta_wallapop"
+attachment_use="False"
+/>
+<!-- Define the QWeb template -->
+<template id="template_etiqueta_wallapop">
+<t t-call="web.html_container">
+    <t t-foreach="docs" t-as="doc">
+        <div class="container text-center mt-4">
+            <!-- Display the id_wallapop field above the image -->
+            <div class="mb-3">
+                <span class="d-block font-weight-bold">
+                    <t t-esc="doc.id_wallapop"/>
+                </span>
+            </div>
 
-                    <!-- Display the etiqueta field as an image -->
-                    <div class="d-flex justify-content-center">
-                        <t t-if="doc.etiqueta">
-                            <img class="img-fluid"
-                                 t-att-src="'data:image/png;base64,%s' % doc.etiqueta.decode('base64')"
-                                 alt="Etiqueta Image"/>
-                        </t>
-                        <t t-else="">
-                            <p>No image available</p>
-                        </t>
-                    </div>
-                </div>
-            </t>
-        </t>
-    </template>
+            <!-- Display the etiqueta field as an image -->
+            <div class="d-flex justify-content-center">
+                <t t-if="doc.etiqueta">
+                    <img class="img-fluid"
+                         t-att-src="'data:image/png;base64,%s' % doc.etiqueta.decode('base64')"
+                         alt="Etiqueta Image"/>
+                </t>
+                <t t-else="">
+                    <p>No image available</p>
+                </t>
+            </div>
+        </div>
+    </t>
+</t>
+</template>
 </odoo>

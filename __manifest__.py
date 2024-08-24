@@ -24,12 +24,13 @@
 
     # always loaded
     'data': [
+        'security/models.xml',
         'security/ir.model.access.csv',
-        'views/action_odoo_japan.xml',
         'views/compras_japon_views.xml',
         'views/envios_japon_views.xml',
         'views/ventas_espana_views.xml',
         'views/templates.xml',
+        'views/action_odoo_japan.xml',
     ],
     'installable': True,
     'application': True,

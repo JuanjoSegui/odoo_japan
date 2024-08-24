@@ -1,26 +1,26 @@
 <odoo>
     <!-- Actions opening views on models -->
 
-    <!-- Action for Compras List View -->
+    <!-- Action para la vista de lista (tree) de compras -->
     <record model="ir.actions.act_window" id="odoo_japan.action_compras_list">
         <field name="name">Compras List</field>
-        <field name="res_model">odoo_japan.compras_japan</field>
+        <field name="res_model">compras.japon</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="odoo_japan_compras_japon_list"/>
-    </record>
+        <field name="view_id" ref="odoo_japan_compras_japon_list"/> <!-- Referencia correcta al ID de la vista de lista -->
+      </record>
 
-    <!-- Action for Compras Kanban View -->
-    <record model="ir.actions.act_window" id="odoo_japan.action_compras_kanban">
+      <!-- Action para la vista Kanban de compras -->
+      <record model="ir.actions.act_window" id="odoo_japan.action_compras_kanban">
         <field name="name">Compras Kanban</field>
-        <field name="res_model">odoo_japan.compras_japan</field>
+        <field name="res_model">compras.japon</field>
         <field name="view_mode">kanban</field>
-        <field name="view_id" ref="odoo_japan_compras_japon_kanban"/>
-    </record>
+        <field name="view_id" ref="odoo_japan_compras_japon_kanban"/> <!-- Referencia correcta al ID de la vista Kanban -->
+      </record>
 
     <!-- Action for Envíos List View -->
     <record model="ir.actions.act_window" id="odoo_japan.action_envios_list">
         <field name="name">Envíos List</field>
-        <field name="res_model">odoo_japan.envios_japon</field>
+        <field name="res_model">envios.japon</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="odoo_japan_envios_japon_list"/>
     </record>
@@ -28,7 +28,7 @@
     <!-- Action for Ventas List View -->
     <record model="ir.actions.act_window" id="odoo_japan.action_ventas_list">
         <field name="name">Ventas List</field>
-        <field name="res_model">odoo_japan.ventas_espana</field>
+        <field name="res_model">ventas.espana</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="odoo_japan_ventas_espana_list"/>
     </record>

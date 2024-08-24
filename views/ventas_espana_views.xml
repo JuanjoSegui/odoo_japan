@@ -1,25 +1,22 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+    <data>
+      <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="odoo_japan_ventas_espana_list">
-      <field name="name">ventas españa list</field>
-      <field name="model">odoo_japan.ventas_espana</field>
-      <field name="groups">base.group_admin</field>
+      <record model="ir.ui.view" id="odoo_japan_ventas_espana_list">
+        <field name="name">ventas españa list</field>
+        <field name="model">ventas.espana</field>
+        <field name="arch" type="xml">
+          <tree editable="bottom">
+            <field name="id_wallapop"/>
+            <field name="nombre"/>
+            <field name="precio"/>
+            <field name="descripcion"/>
+            <field name="vendido"/>
+            <field name="fecha"/>
+            <field name="etiqueta"/>
+          </tree>
+        </field>
+      </record>
 
-      <field name="arch" type="xml">
-        <tree>
-          <field name="id_wallapop"/>
-          <field name="nombre"/>
-          <field name="precio"/>
-          <field name="gastos_envio"/>
-          <field name="descripcion"/>
-          <field name="vendido"/>
-          <field name="fecha"/>
-          <field name="etiqueta"/>
-        </tree>
-      </field>
-    </record>
-
-  </data>
-</odoo>
+    </data>
+  </odoo>

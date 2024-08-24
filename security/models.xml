@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+
+        <!-- Definición del modelo compras.japan -->
+        <record id="model_compras_japon" model="ir.model">
+            <field name="name">Compras Japon</field>
+            <field name="model">compras.japon</field>
+        </record>
+
+        <!-- Definición del modelo envios.japon -->
+        <record id="model_envios_japon" model="ir.model">
+            <field name="name">Envios Japon</field>
+            <field name="model">envios.japon</field>
+        </record>
+
+        <!-- Definición del modelo ventas.espana -->
+        <record id="model_ventas_espana" model="ir.model">
+            <field name="name">Ventas Espana</field>
+            <field name="model">ventas.espana</field>
+        </record>
+
+    </data>
+</odoo>
