@@ -1,43 +1,58 @@
 <odoo>
-    <!-- actions opening views on models -->
+    <!-- Actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="odoo_japan.action_window">
-      <field name="name">odoo_japan window</field>
-      <field name="res_model">odoo_japan.odoo_japan</field>
-      <field name="view_mode">tree,form</field>
+    <!-- Action for Compras List View -->
+    <record model="ir.actions.act_window" id="odoo_japan.action_compras_list">
+        <field name="name">Compras List</field>
+        <field name="res_model">odoo_japan.compras_japan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="odoo_japan_compras_japon_list"/>
     </record>
 
-
-    <!-- server action to the one above -->
-
-    <record model="ir.actions.server" id="odoo_japan.action_server">
-      <field name="name">odoo_japan server</field>
-      <field name="model_id" ref="model_odoo_japan_odoo_japan"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form,kanban",
-          "res_model": model._name,
-        }
-      </field>
+    <!-- Action for Compras Kanban View -->
+    <record model="ir.actions.act_window" id="odoo_japan.action_compras_kanban">
+        <field name="name">Compras Kanban</field>
+        <field name="res_model">odoo_japan.compras_japan</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="odoo_japan_compras_japon_kanban"/>
     </record>
 
+    <!-- Action for Envíos List View -->
+    <record model="ir.actions.act_window" id="odoo_japan.action_envios_list">
+        <field name="name">Envíos List</field>
+        <field name="res_model">odoo_japan.envios_japon</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="odoo_japan_envios_japon_list"/>
+    </record>
+
+    <!-- Action for Ventas List View -->
+    <record model="ir.actions.act_window" id="odoo_japan.action_ventas_list">
+        <field name="name">Ventas List</field>
+        <field name="res_model">odoo_japan.ventas_espana</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="odoo_japan_ventas_espana_list"/>
+    </record>
 
     <!-- Top menu item -->
+    <menuitem name="Odoo Japan" id="odoo_japan.menu_root"/>
 
-    <menuitem name="odoo_japan" id="odoo_japan.menu_root"/>
+    <!-- Menu categories -->
+    <menuitem name="Compras" id="odoo_japan.menu_compras" parent="odoo_japan.menu_root"/>
+    <menuitem name="Envíos" id="odoo_japan.menu_envios" parent="odoo_japan.menu_root"/>
+    <menuitem name="Ventas" id="odoo_japan.menu_ventas" parent="odoo_japan.menu_root"/>
 
-    <!-- menu categories -->
+    <!-- Submenu items for Compras -->
+    <menuitem name="Compras List" id="odoo_japan.menu_compras_list" parent="odoo_japan.menu_compras"
+              action="odoo_japan.action_compras_list"/>
+    <menuitem name="Compras Kanban" id="odoo_japan.menu_compras_kanban" parent="odoo_japan.menu_compras"
+              action="odoo_japan.action_compras_kanban"/>
 
-    <menuitem name="Menu 1" id="odoo_japan.menu_1" parent="odoo_japan.menu_root"/>
-    <menuitem name="Menu 2" id="odoo_japan.menu_2" parent="odoo_japan.menu_root"/>
+    <!-- Submenu items for Envíos -->
+    <menuitem name="Envíos List" id="odoo_japan.menu_envios_list" parent="odoo_japan.menu_envios"
+              action="odoo_japan.action_envios_list"/>
 
-    <!-- actions -->
-
-    <menuitem name="List" id="odoo_japan.menu_1_list" parent="odoo_japan.menu_1"
-              action="odoo_japan.action_window"/>
-    <menuitem name="Server to list" id="odoo_japan" parent="odoo_japan.menu_2"
-              action="odoo_japan.action_server"/>
+    <!-- Submenu items for Ventas -->
+    <menuitem name="Ventas List" id="odoo_japan.menu_ventas_list" parent="odoo_japan.menu_ventas"
+              action="odoo_japan.action_ventas_list"/>
 
 </odoo>

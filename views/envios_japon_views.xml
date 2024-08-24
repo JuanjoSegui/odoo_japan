@@ -2,7 +2,7 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="odoo_japan_envios_japon.list">
+    <record model="ir.ui.view" id="odoo_japan_envios_japon_list">
       <field name="name">envios japon list</field>
       <field name="model">odoo_japan.envios_japon</field>
       <field name="groups">base.group_admin</field>

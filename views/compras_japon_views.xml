@@ -2,7 +2,7 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="odoo_japan_compras_japon.list">
+    <record model="ir.ui.view" id="odoo_japan_compras_japon_list">
       <field name="name">compras japon list</field>
       <field name="model">odoo_japan.compras_japon</field>
       <field name="groups">base.group_admin</field>
@@ -20,8 +20,59 @@
       </field>
     </record>
 
-
-
-
+    <record model="ir.ui.view" id="odoo_japan_compras_japon_kanban">
+        <field name="name">compras japon kanban</field>
+        <field name="model">odoo_japan.compras_japon</field>
+        <field name="groups">base.group_admin</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-foreach="records" t-as="record">
+                        <div class="o_kanban_card">
+                            <div class="o_kanban_image">
+                                <t t-if="record.etiqueta">
+                                    <img t-att-src="'data:image/png;base64,%s' % record.etiqueta.decode('base64')"
+                                         alt="Etiqueta Image" class="img-fluid"/>
+                                </t>
+                                <t t-else="">
+                                    <p>No image available</p>
+                                </t>
+                            </div>
+                            <div class="o_kanban_details">
+                                <div class="o_kanban_title">
+                                    <t t-esc="record.id_wallapop"/>
+                                </div>
+                                <div class="o_kanban_field">
+                                    <strong>Nombre:</strong> <t t-esc="record.nombre"/>
+                                </div>
+                                <div class="o_kanban_field">
+                                    <strong>Precio:</strong> <t t-esc="record.precio"/>
+                                </div>
+                                <div class="o_kanban_field">
+                                    <strong>Gastos Envio:</strong> <t t-esc="record.gastos_envio"/>
+                                </div>
+                                <div class="o_kanban_field">
+                                    <strong>Descripcion:</strong> <t t-esc="record.descripcion"/>
+                                </div>
+                                <div class="o_kanban_field">
+                                    <strong>Vendido:</strong> <t t-esc="record.vendido"/>
+                                </div>
+                                <div class="o_kanban_field">
+                                    <strong>Fecha:</strong> <t t-esc="record.fecha"/>
+                                </div>
+                                <!-- Add button for generating the report -->
+                                <div class="o_kanban_buttons">
+                                    <a type="action" class="btn btn-primary"
+                                        t-att-data-id="record.id">
+                                       Ver Etiqueta
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
   </data>
 </odoo>

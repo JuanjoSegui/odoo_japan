@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_odoo_japan_compras_japan,odoo_japan.compras_japan,model_odoo_japan_compras_japan,base.group_admin,1,1,1,1
-access_odoo_japan_envios_japon,odoo_japan.envios_japon,model_odoo_japan_envios_japon,base.group_admin,1,1,1,1
-access_odoo_japan_odoo_japan,odoo_japan.odoo_japan,model_odoo_japan_odoo_japan,base.group_admin,1,1,1,1
-access_odoo_japan_compras_japan,odoo_japan.compras_japan,model_odoo_japan_compras_japan,base.group_user,1,0,0,0
-access_odoo_japan_envios_japon,odoo_japan.envios_japon,model_odoo_japan_envios_japon,base.group_user,1,0,0,0
-access_odoo_japan_ventas_espana,odoo_japan.ventas_espana,model_odoo_japan_ventas_espana,base.group_user,1,0,0,0
+access_odoo_japan_compras_admin,odoo_japan.compras_japan,model_odoo_japan_compras_japan,base.group_admin,1,1,1,1
+access_odoo_japan_envios_admin,odoo_japan.envios_japon,model_odoo_japan_envios_japon,base.group_admin,1,1,1,1
+access_odoo_japan_ventas_admin,odoo_japan.ventas_espana,model_odoo_japan_ventas_espana,base.group_admin,1,1,1,1
+access_odoo_japan_compras_user,odoo_japan.compras_japan,model_odoo_japan_compras_japan,base.group_user,1,0,0,0
+access_odoo_japan_envios_user,odoo_japan.envios_japon,model_odoo_japan_envios_japon,base.group_user,1,0,0,0
+access_odoo_japan_ventas_user,odoo_japan.ventas_espana,model_odoo_japan_ventas_espana,base.group_user,1,0,0,0

@@ -12,7 +12,7 @@ class compras_japan(models.Model):
     precio = fields.Integer()
     gastos_envio = fields.Float(compute="_gastos_envio", store=True)
     description = fields.Text()
-    vendido = fields.Boolean()
+    vendido = fields.Boolean(default=False)
     fecha = fields.Date()
     etiqueta = fields.image()
 
@@ -20,6 +20,9 @@ class compras_japan(models.Model):
     def _gastos_envio(self):
         for record in self:
             record.id_wallapop = float(record.coste_envio) / len(self.id_wallapop)
+
+    def generate_report(self):
+        return self.env.ref('odoo_japan.report_wallapop_image').report_action(self)
 
 class envios_japon(models.Model):
     _name = 'envios.japon'
