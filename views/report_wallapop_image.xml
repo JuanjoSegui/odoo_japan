@@ -1,0 +1,39 @@
+<odoo>
+    <!-- Report action -->
+    <report
+        id="report_wallapop_image"
+        model="compras.japon"
+        string="Etiqueta Wallapop"
+        report_type="qweb-pdf"
+        name="odoo_japan.template_etiqueta_wallapop"
+        file="odoo_japan.template_etiqueta_wallapop"
+        attachment_use="false"
+        paperformat="odoo_japan.paperformat_wallapop_label"
+    />
+
+    <!-- Define the QWeb template -->
+    <template id="template_etiqueta_wallapop">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="doc">
+                <div class="label">
+
+                    <!-- Información del ID Wallapop -->
+                    <div style="margin-bottom: 5mm; text-align: center;">
+                        <strong> <t t-esc="doc.id_wallapop"/></strong>
+                    </div>
+
+                    <!-- Imagen de la Etiqueta -->
+                    <div style="text-align: center;">
+                        <t t-if="doc.etiqueta">
+                            <img t-att-src="'data:image/png;base64,%s' % doc.etiqueta.decode('utf-8')" alt="Etiqueta Image"/>
+                        </t>
+                        <t t-else="">
+                            <p>No image available</p>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

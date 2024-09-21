@@ -9,11 +9,10 @@
           <tree editable="bottom">
             <field name="id_wallapop"/>
             <field name="nombre"/>
-            <field name="precio"/>
             <field name="descripcion"/>
-            <field name="vendido"/>
-            <field name="fecha"/>
-            <field name="etiqueta"/>
+            <field name="consola"/>
+            <field name="estado"/>
+            <field name="otros"/>
           </tree>
         </field>
       </record>

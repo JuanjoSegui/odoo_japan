@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+    <!-- Paper format for the label -->
+    <record id="paperformat_wallapop_label" model="report.paperformat">
+        <field name="name">Etiqueta Wallapop</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="page_height">100</field>
+        <field name="page_width">50</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+    </record>
+</data>
+</odoo>

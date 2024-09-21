@@ -14,7 +14,8 @@
         <field name="name">Compras Kanban</field>
         <field name="res_model">compras.japon</field>
         <field name="view_mode">kanban</field>
-        <field name="view_id" ref="odoo_japan_compras_japon_kanban"/> <!-- Referencia correcta al ID de la vista Kanban -->
+        <field name="view_id" ref="odoo_japan_compras_japon_kanban"/>
+        <field name="domain">[('vendido', '=', True), ('enviado', '=', False)]</field>
       </record>
 
     <!-- Action for Envíos List View -->
@@ -31,6 +32,16 @@
         <field name="res_model">ventas.espana</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="odoo_japan_ventas_espana_list"/>
+    </record>
+
+    <record id="report_wallapop_image_action" model="ir.actions.report">
+        <field name="name">Etiqueta Wallapop</field>
+        <field name="model">compras.japon</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_japan.template_etiqueta_wallapop</field>
+        <field name="print_report_name">
+          (object.id_wallapop and 'Etiqueta_%s' % object.id_wallapop or 'Etiqueta_Wallapop')
+      </field>
     </record>
 
     <!-- Top menu item -->

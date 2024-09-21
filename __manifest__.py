@@ -24,12 +24,13 @@
 
     # always loaded
     'data': [
+        'views/etiqueta.xml',
+        'views/report_wallapop_image.xml',
         'security/models.xml',
         'security/ir.model.access.csv',
         'views/compras_japon_views.xml',
         'views/envios_japon_views.xml',
         'views/ventas_espana_views.xml',
-        'views/templates.xml',
         'views/action_odoo_japan.xml',
     ],
     'installable': True,
